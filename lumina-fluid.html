@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avant-Garde Web Preloader | Generative Art</title>
+    <link rel="stylesheet" href="lumina-fluid.css">
+    <!-- Extremely refined typography for the UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Advanced SVG Filters for Generative Aesthetics -->
+    <svg class="svg-filters" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- A subtle, high-end glow for thin lines -->
+            <filter id="ethereal-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur1" />
+                <feGaussianBlur stdDeviation="8" result="blur2" />
+                <feMerge>
+                    <feMergeNode in="blur2" />
+                    <feMergeNode in="blur1" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            
+            <!-- Highly complex liquid refraction filter for Style 2 -->
+            <filter id="chromatic-dispersion" x="-20%" y="-20%" width="140%" height="140%">
+                <!-- Slow, high-frequency turbulence -->
+                <feTurbulence type="fractalNoise" baseFrequency="0.003 0.006" numOctaves="4" result="noise" seed="4">
+                    <animate attributeName="baseFrequency" dur="45s" values="0.003 0.006; 0.006 0.009; 0.003 0.006" repeatCount="indefinite" />
+                </feTurbulence>
+                <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -10" in="noise" result="coloredNoise" />
+                <feDisplacementMap in="SourceGraphic" in2="coloredNoise" scale="250" xChannelSelector="R" yChannelSelector="G" result="displacement" />
+                <!-- Add a subtle lighting effect to make it feel like glass -->
+                <feSpecularLighting in="displacement" surfaceScale="2" specularConstant="1" specularExponent="30" lighting-color="#ffffff" result="specular">
+                    <fePointLight x="200" y="200" z="200" />
+                </feSpecularLighting>
+                <feComposite in="specular" in2="displacement" operator="in" result="specularComp" />
+                <feComposite in="displacement" in2="specularComp" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Main Viewport -->
+    <div id="loader-viewport" class="theme-obsidian-gold">
+        
+        <!-- Style 1: Ethereal Threads (Generative Spirograph) -->
+        <div id="loader-ethereal-threads" class="loader-container active">
+            <div class="parallax-wrapper">
+                <div class="spirograph-scene">
+                    <!-- Deep core -->
+                    <div class="spiro-core"></div>
+                    <!-- Complex nested SVG threads -->
+                    <svg class="spiro-svg" viewBox="0 0 200 200">
+                        <g class="thread-group group-1">
+                            <circle cx="100" cy="100" r="90" class="thread" stroke-dasharray="1 6" />
+                            <circle cx="100" cy="100" r="80" class="thread" stroke-dasharray="3 12" />
+                            <circle cx="100" cy="100" r="70" class="thread" stroke-dasharray="1 4" />
+                        </g>
+                        <g class="thread-group group-2">
+                            <circle cx="100" cy="100" r="95" class="thread" stroke-dasharray="2 20" />
+                            <circle cx="100" cy="100" r="85" class="thread" stroke-dasharray="4 8" />
+                            <circle cx="100" cy="100" r="75" class="thread" stroke-dasharray="1 10" />
+                        </g>
+                        <g class="thread-group group-3">
+                            <circle cx="100" cy="100" r="60" class="thread" stroke-dasharray="10 30" />
+                            <circle cx="100" cy="100" r="50" class="thread" stroke-dasharray="2 15" />
+                            <circle cx="100" cy="100" r="40" class="thread" stroke-dasharray="4 4" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style 2: Chromatic Dispersion (Refined Liquid Glass) -->
+        <div id="loader-chromatic-dispersion" class="loader-container">
+            <div class="parallax-wrapper">
+                <div class="liquid-canvas">
+                    <div class="liquid-blob color-1"></div>
+                    <div class="liquid-blob color-2"></div>
+                    <div class="liquid-blob color-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style 3: Geometric Resonance (Minimalist Echoes) -->
+        <div id="loader-geometric-resonance" class="loader-container">
+            <div class="parallax-wrapper">
+                <div class="resonance-scene">
+                    <svg class="resonance-svg" viewBox="0 0 200 200">
+                        <defs>
+                            <polygon id="hex" points="100,20 169.28,60 169.28,140 100,180 30.72,140 30.72,60" />
+                        </defs>
+                        <!-- Hexagons will be cloned and animated via CSS -->
+                        <use href="#hex" class="hex-echo echo-1" />
+                        <use href="#hex" class="hex-echo echo-2" />
+                        <use href="#hex" class="hex-echo echo-3" />
+                        <use href="#hex" class="hex-echo echo-4" />
+                        <use href="#hex" class="hex-echo echo-5" />
+                        <use href="#hex" class="hex-echo echo-6" />
+                        <use href="#hex" class="hex-echo echo-7" />
+                        <use href="#hex" class="hex-echo echo-8" />
+                        <!-- Core diamond -->
+                        <polygon points="100,85 115,100 100,115 85,100" class="resonance-core" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Hidden Trigger Button for Dashboard -->
+    <div id="dashboard-trigger-zone">
+        <div class="trigger-icon">
+            <!-- Very minimalist plus/dot icon -->
+            <svg viewBox="0 0 24 24" width="16" height="16">
+                <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                <circle cx="20" cy="12" r="2" fill="currentColor" opacity="0.5"/>
+                <circle cx="4" cy="12" r="2" fill="currentColor" opacity="0.5"/>
+                <circle cx="12" cy="20" r="2" fill="currentColor" opacity="0.5"/>
+                <circle cx="12" cy="4" r="2" fill="currentColor" opacity="0.5"/>
+            </svg>
+        </div>
+        <span class="trigger-tooltip">CONFIG</span>
+    </div>
+
+    <!-- Ultra-Minimalist Glass Settings Panel -->
+    <div id="control-dashboard" class="hidden">
+        <div class="dashboard-header">
+            <h3>AESTHETICS</h3>
+            <button id="close-dashboard-btn" title="Close">&times;</button>
+        </div>
+        
+        <div class="dashboard-body">
+            <!-- Style Selector -->
+            <div class="control-group">
+                <label>Form</label>
+                <div class="style-toggle-buttons">
+                    <button class="style-btn active" data-style="ethereal-threads">Ethereal</button>
+                    <button class="style-btn" data-style="chromatic-dispersion">Dispersion</button>
+                    <button class="style-btn" data-style="geometric-resonance">Resonance</button>
+                </div>
+            </div>
+            
+            <!-- Color Themes -->
+            <div class="control-group">
+                <label>Palette</label>
+                <div class="theme-buttons">
+                    <!-- Gold/White -->
+                    <button class="theme-btn active" data-theme="theme-obsidian-gold" style="background: linear-gradient(135deg, #d4af37, #fdfbf7);"></button>
+                    <!-- Indigo/Peach -->
+                    <button class="theme-btn" data-theme="theme-abyssal-peach" style="background: linear-gradient(135deg, #2b1055, #ffb38a);"></button>
+                    <!-- Monochrome -->
+                    <button class="theme-btn" data-theme="theme-monochrome" style="background: linear-gradient(135deg, #ffffff, #666666);"></button>
+                    <!-- Crimson/Violet -->
+                    <button class="theme-btn" data-theme="theme-crimson-void" style="background: linear-gradient(135deg, #750016, #3b0066);"></button>
+                </div>
+            </div>
+            
+            <!-- Speed Multiplier -->
+            <div class="control-group">
+                <div class="slider-header">
+                    <label for="speed-range">Tempo</label>
+                    <span id="speed-val">1.0x</span>
+                </div>
+                <input type="range" id="speed-range" min="0.1" max="2.5" step="0.1" value="1.0">
+            </div>
+
+            <!-- Loading Simulation Progress Slider -->
+            <div class="control-group">
+                <div class="slider-header">
+                    <label for="progress-range">Evolution</label>
+                    <span id="progress-val">Infinite</span>
+                </div>
+                <input type="range" id="progress-range" min="0" max="100" value="50">
+            </div>
+
+            <!-- Simulation Controls -->
+            <div class="dashboard-actions">
+                <button id="btn-simulate-loop" class="action-btn active">Infinite</button>
+                <button id="btn-simulate-progress" class="action-btn">Linear</button>
+            </div>
+        </div>
+
+        <div class="dashboard-footer">
+            <span>Dbl-click to collapse</span>
+        </div>
+    </div>
+
+    <!-- Subtle Help Toast -->
+    <div id="help-toast">Hover bottom right or double-click to access config.</div>
+
+    <script src="lumina-fluid.js"></script>
+</body>
+</html>
