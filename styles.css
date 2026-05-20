@@ -1,0 +1,582 @@
+/* ==========================================================================
+   Generative Art CSS & Theme Variables
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@200;300;400&display=swap');
+
+:root {
+    /* Extreme dark abyss for contrast */
+    --bg-dark: #050507;
+    --panel-bg: rgba(5, 5, 8, 0.4);
+    --panel-border: rgba(255, 255, 255, 0.05);
+    
+    /* Typography */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --text-primary: rgba(255, 255, 255, 0.85);
+    --text-muted: rgba(255, 255, 255, 0.4);
+    
+    /* Variables controlled via JS */
+    --animation-speed-mult: 1;
+    --parallax-x: 0px;
+    --parallax-y: 0px;
+}
+
+/* ==========================================================================
+   Color Palettes (Thematic)
+   ========================================================================== */
+.theme-obsidian-gold {
+    --color-1: #d4af37; /* Gold */
+    --color-2: #fdfbf7; /* Pearl */
+    --color-3: #8a7322; /* Deep Gold */
+}
+
+.theme-abyssal-peach {
+    --color-1: #ffb38a; /* Peach */
+    --color-2: #2b1055; /* Deep Indigo */
+    --color-3: #ff5e62; /* Coral */
+}
+
+.theme-monochrome {
+    --color-1: #ffffff;
+    --color-2: #888888;
+    --color-3: #333333;
+}
+
+.theme-crimson-void {
+    --color-1: #ff003c;
+    --color-2: #3b0066;
+    --color-3: #ff7300;
+}
+
+/* ==========================================================================
+   Base Layout
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow: hidden;
+    font-family: var(--font-body);
+}
+
+.svg-filters {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+#loader-viewport {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loader-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s cubic-bezier(0.25, 1, 0.25, 1);
+    z-index: 1;
+}
+
+.loader-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Wrapper for smooth parallax transitions */
+.parallax-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(var(--parallax-x), var(--parallax-y));
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==========================================================================
+   STYLE 1: Ethereal Threads (空灵之线)
+   ========================================================================== */
+.spirograph-scene {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.spiro-core {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--color-1);
+    box-shadow: 0 0 20px 5px var(--color-1), 0 0 40px 10px var(--color-2);
+    border-radius: 50%;
+    animation: coreBreathe calc(4s / var(--animation-speed-mult)) ease-in-out infinite alternate;
+}
+
+.spiro-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: url(#ethereal-glow);
+    overflow: visible;
+}
+
+.thread {
+    fill: none;
+    stroke: var(--color-1);
+    stroke-width: 0.3; /* Extremely fine line */
+    opacity: 0.6;
+    transform-origin: 100px 100px;
+}
+
+.thread-group {
+    transform-origin: 100px 100px;
+}
+
+/* Rotate groups in different directions with prime number durations for generative feel */
+.group-1 {
+    animation: rotateCW calc(41s / var(--animation-speed-mult)) linear infinite;
+    stroke: var(--color-1);
+}
+.group-2 {
+    animation: rotateCCW calc(37s / var(--animation-speed-mult)) linear infinite;
+    stroke: var(--color-2);
+}
+.group-3 {
+    animation: rotateCW calc(53s / var(--animation-speed-mult)) linear infinite;
+    stroke: var(--color-3);
+    opacity: 0.4;
+}
+
+/* Nested spinning of individual circles inside the groups to create interference patterns (moiré) */
+.group-1 .thread:nth-child(1) { animation: rotateCCW calc(17s / var(--animation-speed-mult)) linear infinite; }
+.group-1 .thread:nth-child(2) { animation: rotateCW calc(19s / var(--animation-speed-mult)) linear infinite; }
+.group-2 .thread:nth-child(1) { animation: rotateCW calc(23s / var(--animation-speed-mult)) linear infinite; }
+.group-2 .thread:nth-child(2) { animation: rotateCCW calc(29s / var(--animation-speed-mult)) linear infinite; }
+
+@keyframes rotateCW {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCCW {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes coreBreathe {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(2); opacity: 1; }
+}
+
+/* ==========================================================================
+   STYLE 2: Chromatic Dispersion (色散流体)
+   ========================================================================== */
+.liquid-canvas {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    max-width: 800px;
+    max-height: 800px;
+    filter: url(#chromatic-dispersion) blur(4px); /* Blur softens the edges before displacement */
+    opacity: 0.9;
+    mix-blend-mode: screen;
+}
+
+.liquid-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.color-1 {
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, var(--color-1) 0%, transparent 70%);
+    animation: float1 calc(25s / var(--animation-speed-mult)) ease-in-out infinite alternate;
+}
+
+.color-2 {
+    bottom: 10%;
+    right: 15%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, var(--color-2) 0%, transparent 65%);
+    animation: float2 calc(31s / var(--animation-speed-mult)) ease-in-out infinite alternate;
+}
+
+.color-3 {
+    top: 40%;
+    left: 40%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, var(--color-3) 0%, transparent 75%);
+    animation: float3 calc(22s / var(--animation-speed-mult)) ease-in-out infinite alternate;
+}
+
+@keyframes float1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(15%, 10%) scale(1.2); }
+}
+@keyframes float2 {
+    0% { transform: translate(0, 0) scale(1.1); }
+    100% { transform: translate(-20%, -15%) scale(0.9); }
+}
+@keyframes float3 {
+    0% { transform: translate(0, 0) scale(0.8); }
+    100% { transform: translate(10%, -20%) scale(1.3); }
+}
+
+
+/* ==========================================================================
+   STYLE 3: Geometric Resonance (几何共振)
+   ========================================================================== */
+.resonance-scene {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resonance-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.resonance-core {
+    fill: var(--color-1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px var(--color-1));
+    animation: pulseCore calc(2s / var(--animation-speed-mult)) ease-in-out infinite alternate;
+    transform-origin: 100px 100px;
+}
+
+.hex-echo {
+    fill: none;
+    stroke: var(--color-2);
+    stroke-width: 0.2;
+    transform-origin: 100px 100px;
+    opacity: 0;
+    /* Scale out and fade over time */
+    animation: echoExpand calc(6s / var(--animation-speed-mult)) cubic-bezier(0.1, 0.7, 0.3, 1) infinite;
+}
+
+/* Stagger the echoes */
+.echo-1 { animation-delay: 0s; stroke: var(--color-1); }
+.echo-2 { animation-delay: calc(0.75s / var(--animation-speed-mult)); }
+.echo-3 { animation-delay: calc(1.5s / var(--animation-speed-mult)); stroke: var(--color-3); }
+.echo-4 { animation-delay: calc(2.25s / var(--animation-speed-mult)); }
+.echo-5 { animation-delay: calc(3s / var(--animation-speed-mult)); stroke: var(--color-1); }
+.echo-6 { animation-delay: calc(3.75s / var(--animation-speed-mult)); }
+.echo-7 { animation-delay: calc(4.5s / var(--animation-speed-mult)); stroke: var(--color-3); }
+.echo-8 { animation-delay: calc(5.25s / var(--animation-speed-mult)); }
+
+@keyframes echoExpand {
+    0% {
+        transform: scale(0.1) rotate(0deg);
+        opacity: 0;
+        stroke-width: 2;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(4) rotate(90deg);
+        opacity: 0;
+        stroke-width: 0.1;
+    }
+}
+
+@keyframes pulseCore {
+    0% { transform: scale(0.8) rotate(45deg); opacity: 0.4; }
+    100% { transform: scale(1.1) rotate(45deg); opacity: 1; }
+}
+
+
+/* ==========================================================================
+   Minimalist Control UI
+   ========================================================================== */
+#dashboard-trigger-zone {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+}
+
+#dashboard-trigger-zone:hover {
+    opacity: 1;
+}
+
+.trigger-icon {
+    color: var(--text-primary);
+    transition: transform 0.4s ease;
+}
+
+#dashboard-trigger-zone:hover .trigger-icon {
+    transform: rotate(90deg);
+}
+
+.trigger-tooltip {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-right: 12px;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+#dashboard-trigger-zone:hover .trigger-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#control-dashboard {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    width: 320px; /* Slimmer profile */
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px; /* Sharper corners for modern minimalist look */
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    z-index: 999;
+    padding: 30px;
+    transition: opacity 0.6s cubic-bezier(0.2, 1, 0.2, 1), transform 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+}
+
+#control-dashboard.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h3 {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#close-dashboard-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 200;
+    transition: color 0.3s;
+}
+
+#close-dashboard-btn:hover {
+    color: #fff;
+}
+
+.dashboard-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.control-group label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.style-toggle-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.style-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    padding: 10px 14px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.style-btn:hover {
+    background: rgba(255,255,255,0.02);
+    color: #fff;
+}
+
+.style-btn.active {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+}
+
+.theme-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-btn.active {
+    border-color: #fff;
+    transform: scale(1.1);
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.slider-header span {
+    font-family: var(--font-body);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-muted);
+    padding: 8px;
+    font-family: var(--font-body);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn.active {
+    background: rgba(255,255,255,0.9);
+    color: var(--bg-dark);
+}
+
+.dashboard-footer {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.dashboard-footer span {
+    font-family: var(--font-body);
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 1px;
+}
+
+#help-toast {
+    position: absolute;
+    top: 40px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#help-toast.show {
+    opacity: 1;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Geometry - Mathematical Generative Art</title>
+    <link rel="stylesheet" href="math-art.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Load Three.js core and OrbitControls from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="ui-layer">
+        <div class="title-container">
+            <h1 id="art-title">SACRED GEOMETRY</h1>
+            <p id="art-subtitle">The Fibonacci Sphere</p>
+        </div>
+        <div class="hint">
+            Drag to rotate • Scroll to zoom
+        </div>
+    </div>
+    
+    <!-- Three.js Canvas will be appended here by JS -->
+    <div id="canvas-container"></div>
+
+    <script src="math-art.js"></script>
+</body>
+</html>
