@@ -7,6 +7,22 @@ This museum serves as an exploration of the intersection between mathematics, co
 
 ## Exhibitions
 
+### Exhibit 10: Crystal Mandelbulb
+**Medium**: GLSL Raymarching / Physical Optics
+**Description**: An infinite dive into a 3D fractal abyss. This exhibit renders the Mandelbulb using raymarching, enhanced with physical light interactions—refraction, reflection, and chromatic dispersion—to simulate a microscopic universe made entirely of high-purity glass and crystal.
+
+### Exhibit 09: Quantum Fluid
+**Medium**: WebGL / Navier-Stokes (Fluid Dynamics)
+**Description**: A continuous, high-dimensional fluid canvas. Users interact with a real-time fluid simulation that models chaotic turbulence and vortices, disturbed by the cursor to create silk-like, neon-lit smoke clouds that evoke the feeling of touching a cosmic nebula.
+
+### Exhibit 08: Turing's Dream
+**Medium**: WebGL / Reaction-Diffusion
+**Description**: A tribute to Alan Turing's biological theories. Using Ping-Pong framebuffers, this shader simulates the chemical reaction-diffusion process millions of times per second to organically "grow" life-like, morphing textures reminiscent of zebra stripes, leopard spots, or brain coral.
+
+### Exhibit 07: Essence Precedes Existence (本质先于存在)
+**Medium**: GLSL Shader / Raymarching
+**Description**: The crowning jewel of the museum. An infinite, breathing structure generated entirely from a single mathematical equation (a Gyroid Signed Distance Field). Without a single 3D model or image asset, it uses raymarching light transport to render a timeless labyrinth of liquid gold and deep obsidian. A philosophical reflection on the permanence of code.
+
 ### Exhibit 06: Vector Wind
 **Medium**: Flow Fields / Canvas
 **Description**: Visualizing invisible forces. Millions of particles are swept along a mathematically generated pseudo-random vector wind field. It creates mesmerizing, silk-like fluid currents that simulate deep ocean flows or solar winds.

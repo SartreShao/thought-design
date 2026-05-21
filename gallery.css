@@ -190,3 +190,19 @@ body {
 .bg-wind {
     background: radial-gradient(circle at 50% 50%, rgba(50, 150, 255, 0.1) 0%, rgba(0, 50, 100, 0.05) 50%, #030304 80%);
 }
+
+.bg-essence {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, rgba(50, 20, 0, 0.05) 60%, #030304 80%);
+}
+
+.bg-turing {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 150, 0.15) 0%, rgba(0, 100, 50, 0.05) 60%, #030304 80%);
+}
+
+.bg-quantum {
+    background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.15) 0%, rgba(0, 191, 255, 0.05) 60%, #030304 80%);
+}
+
+.bg-crystal {
+    background: radial-gradient(circle at 50% 50%, rgba(224, 255, 255, 0.15) 0%, rgba(255, 105, 180, 0.05) 60%, #030304 80%);
+}

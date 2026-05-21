@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+#glcanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.back-btn {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    pointer-events: auto;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.back-btn:hover {
+    color: #fff;
+}
+
+.exhibit-info {
+    text-align: right;
+    align-self: flex-end;
+}
+
+.exhibit-number {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: rgba(224, 255, 255, 0.9);
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    margin-bottom: 5px;
+}
+
+.exhibit-info h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.exhibit-info p {
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

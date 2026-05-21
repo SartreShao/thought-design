@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Loading</title>
+    <link rel="stylesheet" href="loading-art.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=JetBrains+Mono:wght@100;300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="glcanvas"></canvas>
+    
+    <div class="loading-ui">
+        <div class="text-container">
+            <span class="label">GATHERING SUBSTANCE</span>
+            <span class="percentage" id="progress-text">00.00%</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="log-output" id="log-text">ESTABLISHING CONNECTION...</div>
+    </div>
+
+    <!-- Screen flashes white when complete -->
+    <div class="flash-overlay" id="flash"></div>
+
+    <script src="loading-art.js"></script>
+</body>
+</html>

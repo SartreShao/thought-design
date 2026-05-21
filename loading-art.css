@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #020202;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+#glcanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.loading-ui {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    max-width: 90vw;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.text-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.label {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.percentage {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: width 0.1s linear;
+}
+
+.log-output {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    letter-spacing: 1px;
+    height: 14px;
+}
+
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.flash-overlay.active {
+    opacity: 1;
+}
