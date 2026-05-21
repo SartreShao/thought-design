@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibit 05: Particle Assembly</title>
+    <link rel="stylesheet" href="particle-assembly.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Return to Museum</a>
+
+    <div id="ui-layer">
+        <div class="title-container">
+            <h1 id="art-title">PARTICLE ASSEMBLY</h1>
+            <p id="art-subtitle">From Chaos to Order</p>
+        </div>
+
+        <div class="loading-controls">
+            <div class="shape-selectors">
+                <button class="shape-btn active" data-shape="octahedron">Octahedron</button>
+                <button class="shape-btn" data-shape="text">Typography</button>
+                <button class="shape-btn" data-shape="dna">DNA Helix</button>
+            </div>
+            <label for="load-slider">Simulation Progress: <span id="load-val">0%</span></label>
+            <input type="range" id="load-slider" min="0" max="100" value="0">
+        </div>
+    </div>
+
+    <!-- WebGL Canvas -->
+    <div id="canvas-container"></div>
+
+    <script src="particle-assembly.js"></script>
+</body>
+</html>

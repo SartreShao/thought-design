@@ -7,6 +7,14 @@ This museum serves as an exploration of the intersection between mathematics, co
 
 ## Exhibitions
 
+### Exhibit 06: Vector Wind
+**Medium**: Flow Fields / Canvas
+**Description**: Visualizing invisible forces. Millions of particles are swept along a mathematically generated pseudo-random vector wind field. It creates mesmerizing, silk-like fluid currents that simulate deep ocean flows or solar winds.
+
+### Exhibit 05: Particle Assembly
+**Medium**: WebGL / Three.js
+**Description**: A poetic interpretation of "loading". 15,000 scattered, chaotic stardust particles slowly converge, propelled by a slider, snapping mathematically into the perfect structural order of a glowing Platonic Octahedron.
+
 ### Exhibit 04: The Organic Loom
 **Medium**: Cellular Automata / Canvas
 **Description**: An exploration of mathematical biology. A high-performance 2D canvas simulation of the Physarum (Slime Mold) transport network algorithm. Thousands of agents follow, reinforce, and decay a chemical trail, generating breathtaking organic structures that resemble bioluminescent coral or slime mold colonies. Click anywhere to spawn new life.

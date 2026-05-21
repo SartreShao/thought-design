@@ -182,3 +182,11 @@ body {
 .bg-synesthesia {
     background: radial-gradient(circle at 50% 50%, rgba(150, 50, 255, 0.1) 0%, rgba(80, 0, 150, 0.05) 50%, #030304 80%);
 }
+
+.bg-assembly {
+    background: radial-gradient(circle at 50% 50%, rgba(200, 200, 255, 0.15) 0%, rgba(100, 100, 150, 0.05) 50%, #030304 80%);
+}
+
+.bg-wind {
+    background: radial-gradient(circle at 50% 50%, rgba(50, 150, 255, 0.1) 0%, rgba(0, 50, 100, 0.05) 50%, #030304 80%);
+}
