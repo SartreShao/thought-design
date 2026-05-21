@@ -7,6 +7,14 @@ This museum serves as an exploration of the intersection between mathematics, co
 
 ## Exhibitions
 
+### Exhibit 04: The Organic Loom
+**Medium**: Cellular Automata / Canvas
+**Description**: An exploration of mathematical biology. A high-performance 2D canvas simulation of the Physarum (Slime Mold) transport network algorithm. Thousands of agents follow, reinforce, and decay a chemical trail, generating breathtaking organic structures that resemble bioluminescent coral or slime mold colonies. Click anywhere to spawn new life.
+
+### Exhibit 03: Synesthesia
+**Medium**: Web Audio API / Three.js
+**Description**: A real-time audio-visual synthesizer. Upload any audio file from your device, and the browser's Web Audio API will extract frequency bands in real-time to drive a massive cosmic starburst particle system. Deep bass causes the nebula to erupt and shift color, while treble frequencies dictate the shimmering size of the individual stars.
+
 ### Exhibit 02: Sacred Geometry
 **Medium**: WebGL / Three.js / Mathematics
 **Description**: An interactive 3D particle system exploring the underlying math of the universe. 60,000 iridescent particles morph seamlessly between the Golden Ratio (Fibonacci Sphere), topological complexities (Torus Knot), and chaos theory (Lorenz Attractor).
