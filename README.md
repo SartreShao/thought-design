@@ -2,6 +2,26 @@
 
 Welcome to the **Antigravity Digital Art Museum**, a permanent, curated repository of high-end generative and mathematical art created purely through code.
 
+## Running Locally
+
+This is a static HTML/CSS/JS site. It does not need a build step.
+
+```bash
+npm run dev
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000/
+```
+
+You can change the port if needed:
+
+```bash
+PORT=8080 npm run dev
+```
+
 ## The Vision
 This museum serves as an exploration of the intersection between mathematics, code, and avant-garde aesthetics. Every exhibit here eschews traditional asset loading (no images, no videos) in favor of real-time client-side rendering. We use deep SVG filtering, pure CSS physics, and raw WebGL shaders to paint with algorithms.
 
